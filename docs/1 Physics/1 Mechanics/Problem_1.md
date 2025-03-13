@@ -5,7 +5,7 @@
 Projectile motion is a classic problem in physics that elegantly combines kinematics and dynamics to describe the trajectory of objects under the influence of gravity. The question of how the horizontal range depends on the angle of projection is both simple and profound, revealing a rich interplay of initial conditions and physical parameters. This investigation explores the theoretical underpinnings, parametric dependencies, and real-world applications of projectile motion, enhanced by computational simulation.
 
 ---
-
+s
 ## 1. Theoretical Foundation
 
 ### Deriving the Governing Equations

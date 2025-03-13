@@ -117,7 +117,6 @@ def calculate_range(v0, theta_deg):
 
 # Angles from 0 to 90 degrees
 angles = np.arange(0, 91, 1)
-
 # Different initial velocities (m/s)
 initial_velocities = [10, 20, 30, 40]
 

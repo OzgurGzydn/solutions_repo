@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 2 - Physics and Mathematics</title>
+<title>Investigating the Dynamics of a Forced Damped Pendulum - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 2";
+        var mkdocs_page_name = "Investigating the Dynamics of a Forced Damped Pendulum";
         var mkdocs_page_input_path = "1 Physics/1 Mechanics/Problem_2.md";
         var mkdocs_page_url = null;
       </script>
@@ -48,8 +48,34 @@
 <ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Problem_1/">Mechanics</a>
 </li>
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Investigating the Dynamics of a Forced Damped Pendulum</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#task-1-theoretical-foundation">Task 1: Theoretical Foundation</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#differential-equation">Differential Equation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#small-angle-approximation">Small-Angle Approximation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#general-solution">General Solution</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#resonance">Resonance</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#task-2-analysis-of-dynamics">Task 2: Analysis of Dynamics</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#parameter-effects">Parameter Effects</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#transition-to-chaos">Transition to Chaos</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#task-3-practical-applications">Task 3: Practical Applications</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#task-4-implementation">Task 4: Implementation</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -163,7 +189,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">1 Mechanics</li>
-<li class="breadcrumb-item active">Problem 2</li>
+<li class="breadcrumb-item active">Investigating the Dynamics of a Forced Damped Pendulum</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +197,139 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-2">Problem 2</h1>
+<h1 id="investigating-the-dynamics-of-a-forced-damped-pendulum">Investigating the Dynamics of a Forced Damped Pendulum</h1>
+<h2 id="motivation">Motivation</h2>
+<p>The forced damped pendulum is a captivating example of a physical system with intricate behavior resulting from the interplay of damping, restoring forces, and external driving forces. By introducing both damping and external periodic forcing, the system demonstrates a transition from simple harmonic motion to a rich spectrum of dynamics, including resonance, chaos, and quasiperiodic behavior. These phenomena serve as a foundation for understanding complex real-world systems, such as driven oscillators, climate systems, and mechanical structures under periodic stress.</p>
+<p>Adding forcing introduces new parameters, such as the amplitude and frequency of the external force, which significantly affect the pendulum's behavior. By systematically varying these parameters, a diverse class of solutions can be observed, including synchronized oscillations, chaotic motion, and resonance phenomena. These behaviors not only highlight fundamental physics principles but also provide insights into engineering applications such as energy harvesting, vibration isolation, and mechanical resonance.</p>
+<hr/>
+<h2 id="task-1-theoretical-foundation">Task 1: Theoretical Foundation</h2>
+<h3 id="differential-equation">Differential Equation</h3>
+<p>The motion of a forced damped pendulum is governed by the following nonlinear differential equation:</p>
+<div class="arithmatex">\[
+\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \frac{g}{L}\sin(\theta) = F\cos(\omega t)
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(\theta\)</span>: Angular displacement (radians)
+- <span class="arithmatex">\(b\)</span>: Damping coefficient (s⁻¹)
+- <span class="arithmatex">\(g\)</span>: Gravitational acceleration (m/s²)
+- <span class="arithmatex">\(L\)</span>: Pendulum length (m)
+- <span class="arithmatex">\(F\)</span>: Driving force amplitude (s⁻²)
+- <span class="arithmatex">\(\omega\)</span>: Driving frequency (rad/s)</p>
+<h3 id="small-angle-approximation">Small-Angle Approximation</h3>
+<p>For small angles (<span class="arithmatex">\(\theta \ll 1\)</span>), <span class="arithmatex">\(\sin(\theta) \approx \theta\)</span>, simplifying the equation to:</p>
+<div class="arithmatex">\[
+\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \omega_0^2\theta = F\cos(\omega t)
+\]</div>
+<p>Where <span class="arithmatex">\(\omega_0 = \sqrt{\frac{g}{L}}\)</span> is the natural frequency. This is a linear second-order differential equation with a harmonic forcing term.</p>
+<h3 id="general-solution">General Solution</h3>
+<p>The general solution to this differential equation consists of two parts:
+1. <em>Homogeneous solution (transient response):</em>
+   $$
+   \theta_h(t) = A e^{-\frac{b}{2}t} \cos(\omega_r t + \phi)
+   $$</p>
+<p>where <span class="arithmatex">\(\omega_r = \sqrt{\omega_0^2 - \left(\frac{b}{2}\right)^2}\)</span>.</p>
+<ol>
+<li><em>Particular solution (steady-state response):</em>
+   $$
+   \theta_p(t) = A_p \cos(\omega t - \delta)
+   $$</li>
+</ol>
+<p>where
+   $$
+   A_p = \frac{F}{\sqrt{(\omega_0^2 - \omega^2)^2 + (b\omega)^2}}
+   $$</p>
+<p>and
+   $$
+   \delta = \tan^{-1}\left(\frac{b\omega}{\omega_0^2 - \omega^2}\right).
+   $$</p>
+<h3 id="resonance">Resonance</h3>
+<p>Resonance occurs when the driving frequency <span class="arithmatex">\(\omega\)</span> approaches the natural frequency <span class="arithmatex">\(\omega_0\)</span>. For light damping (<span class="arithmatex">\(b \ll \omega_0\)</span>), the amplitude <span class="arithmatex">\(A_p\)</span> peaks sharply near <span class="arithmatex">\(\omega = \omega_0\)</span>, amplifying the system's energy significantly.</p>
+<hr/>
+<h2 id="task-2-analysis-of-dynamics">Task 2: Analysis of Dynamics</h2>
+<h3 id="parameter-effects">Parameter Effects</h3>
+<ul>
+<li><em>Damping Coefficient (b):</em> Higher <span class="arithmatex">\(b\)</span> reduces oscillation amplitude and suppresses chaos, stabilizing the system.</li>
+<li><em>Driving Amplitude (F):</em> Larger <span class="arithmatex">\(F\)</span> can push the system from periodic to chaotic motion.</li>
+<li><em>Driving Frequency (<span class="arithmatex">\(\omega\)</span>):</em> Near <span class="arithmatex">\(\omega_0\)</span>, resonance amplifies motion; far from <span class="arithmatex">\(\omega_0\)</span>, the system may exhibit quasiperiodic or chaotic behavior.</li>
+</ul>
+<h3 id="transition-to-chaos">Transition to Chaos</h3>
+<p>For large <span class="arithmatex">\(F\)</span> or specific <span class="arithmatex">\(\omega\)</span>, the nonlinear term <span class="arithmatex">\(\sin(\theta)\)</span> dominates, leading to chaotic motion. This transition is evident in phase portraits and Poincaré sections, where trajectories shift from closed loops (periodic) to scattered points (chaotic).</p>
+<hr/>
+<h2 id="task-3-practical-applications">Task 3: Practical Applications</h2>
+<ul>
+<li><em>Energy Harvesting:</em> Oscillatory motion in forced pendulums can be converted to electrical energy.</li>
+<li><em>Suspension Bridges:</em> Damping and forcing model wind-induced vibrations.</li>
+<li><em>Oscillating Circuits:</em> Analogous to driven RLC circuits, where resonance and damping play similar roles.</li>
+</ul>
+<hr/>
+<h2 id="task-4-implementation">Task 4: Implementation</h2>
+<p>Below is a Python script simulating the forced damped pendulum using the 4th-order Runge-Kutta (RK4) method. It includes visualizations of motion, phase portraits, and Poincaré sections.</p>
+<h1 id="parameters">Parameters</h1>
+<p>Gravitational acceleration:</p>
+<div class="arithmatex">\[ g = 9.81 \text{ m/s}^2 \]</div>
+<p>Pendulum length:</p>
+<div class="arithmatex">\[ L = 1.0 \text{ m} \]</div>
+<p>Damping coefficient:</p>
+<div class="arithmatex">\[ b = 0.5 \text{ s}^{-1} \]</div>
+<p>Driving amplitude:</p>
+<div class="arithmatex">\[ F = 1.2 \text{ s}^{-2} \]</div>
+<p>Driving frequency:</p>
+<div class="arithmatex">\[ \omega = \frac{2}{3} \text{ rad/s} \]</div>
+<p>Natural frequency:</p>
+<div class="arithmatex">\[ \omega_0 = \sqrt{\frac{g}{L}} \]</div>
+<h3 id="differential-equation_1">Differential Equation</h3>
+<p>The equation governing the forced damped pendulum is:</p>
+<div class="arithmatex">\[ \frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \omega_0^2 \sin\theta = F \cos(\omega t) \]</div>
+<h2 id="differential-equation-and-simulation">Differential Equation and Simulation</h2>
+<p>The forced damped pendulum follows the equation:</p>
+<div class="arithmatex">\[ \frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \omega_0^2 \sin\theta = F \cos(\omega t) \]</div>
+<p>import numpy as np</p>
+<p>def pendulum_deriv(state, t, b, omega_0, F, omega):
+    """
+    Damped forced pendulum differential equation.</p>
+<p>import numpy as np</p>
+<p>def pendulum_deriv(state, t, b, omega_0, F, omega):
+    """
+    Computes the derivatives for the forced damped pendulum.</p>
+<pre><code>Parameters:
+    state (tuple): (theta, theta_dot)
+    t (float): time
+    b (float): damping coefficient
+    omega_0 (float): natural frequency
+    F (float): forcing amplitude
+    omega (float): forcing frequency
+
+Returns:
+    tuple: (dtheta_dt, dtheta_dot_dt)
+"""
+theta, theta_dot = state
+dtheta_dt = theta_dot  # Angular velocity
+dtheta_dot_dt = -b * theta_dot - omega_0**2 * np.sin(theta) + F * np.cos(omega * t)
+return dtheta_dt, dtheta_dot_dt
+</code></pre>
+<h1 id="example-usage-and-showcasing-the-equation">Example usage (and showcasing the equation):</h1>
+<h1 id="the-forced-damped-pendulum-follows-the-equation">The forced damped pendulum follows the equation:</h1>
+<h1 id="fracd2thetadt2-b-fracdthetadt-omega_02-sintheta-f-cosomega-t">$$ \frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \omega_0^2 \sin\theta = F \cos(\omega t) $$</h1>
+<h1 id="where">where:</h1>
+<h1 id="-theta-is-the-angle-of-the-pendulum">- theta is the angle of the pendulum</h1>
+<h1 id="-b-is-the-damping-coefficient">- b is the damping coefficient</h1>
+<h1 id="-omega_0-is-the-natural-frequency">- omega_0 is the natural frequency</h1>
+<h1 id="-f-is-the-forcing-amplitude">- F is the forcing amplitude</h1>
+<h1 id="-omega-is-the-forcing-frequency">- omega is the forcing frequency</h1>
+<h1 id="-t-is-time">- t is time.</h1>
+<h1 id="example-parameters">Example parameters:</h1>
+<p>b = 0.25
+omega_0 = 1.0
+F = 0.3
+omega = 1.5</p>
+<h1 id="example-initial-conditions">Example initial conditions:</h1>
+<p>initial_state = (np.pi / 4, 0.0) # (theta, theta_dot)</p>
+<h1 id="example-time">Example time:</h1>
+<p>t = 0.0</p>
+<h1 id="example-derivative-calculation">Example derivative calculation:</h1>
+<p>dtheta_dt, dtheta_dot_dt = pendulum_deriv(initial_state, t, b, omega_0, F, omega)</p>
+<p>print(f"dtheta/dt: {dtheta_dt}")
+print(f"d^2theta/dt^2: {dtheta_dot_dt}")</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">

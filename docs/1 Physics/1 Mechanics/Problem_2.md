@@ -7,7 +7,7 @@ Adding forcing introduces new parameters, such as the amplitude and frequency of
 
 ---
 
-## Task 1: Theoretical Foundation
+## : Theoretical Foundation
 
 ### Differential Equation
 The motion of a forced damped pendulum is governed by the following nonlinear differential equation:
@@ -62,7 +62,7 @@ Resonance occurs when the driving frequency \(\omega\) approaches the natural fr
 
 ---
 
-## Task 2: Analysis of Dynamics
+##  Analysis of Dynamics
 
 ### Parameter Effects
 - *Damping Coefficient (b):* Higher \(b\) reduces oscillation amplitude and suppresses chaos, stabilizing the system.
@@ -74,7 +74,7 @@ For large \(F\) or specific \(\omega\), the nonlinear term \(\sin(\theta)\) domi
 
 ---
 
-## Task 3: Practical Applications
+##  Practical Applications
 
 - *Energy Harvesting:* Oscillatory motion in forced pendulums can be converted to electrical energy.
 - *Suspension Bridges:* Damping and forcing model wind-induced vibrations.
@@ -82,7 +82,7 @@ For large \(F\) or specific \(\omega\), the nonlinear term \(\sin(\theta)\) domi
 
 ---
 
-## Task 4: Implementation
+##  Implementation
 
 Below is a Python script simulating the forced damped pendulum using the 4th-order Runge-Kutta (RK4) method. It includes visualizations of motion, phase portraits, and Poincaré sections.
 

@@ -52,7 +52,7 @@
 <ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#task-1-theoretical-foundation">Task 1: Theoretical Foundation</a>
+<li class="toctree-l3"><a class="reference internal" href="#theoretical-foundation">: Theoretical Foundation</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#differential-equation">Differential Equation</a>
 </li>
@@ -64,7 +64,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#task-2-analysis-of-dynamics">Task 2: Analysis of Dynamics</a>
+<li class="toctree-l3"><a class="reference internal" href="#analysis-of-dynamics">Analysis of Dynamics</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#parameter-effects">Parameter Effects</a>
 </li>
@@ -72,9 +72,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#task-3-practical-applications">Task 3: Practical Applications</a>
+<li class="toctree-l3"><a class="reference internal" href="#practical-applications">Practical Applications</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#task-4-implementation">Task 4: Implementation</a>
+<li class="toctree-l3"><a class="reference internal" href="#implementation">Implementation</a>
 </li>
 </ul>
 </li>
@@ -202,7 +202,7 @@
 <p>The forced damped pendulum is a captivating example of a physical system with intricate behavior resulting from the interplay of damping, restoring forces, and external driving forces. By introducing both damping and external periodic forcing, the system demonstrates a transition from simple harmonic motion to a rich spectrum of dynamics, including resonance, chaos, and quasiperiodic behavior. These phenomena serve as a foundation for understanding complex real-world systems, such as driven oscillators, climate systems, and mechanical structures under periodic stress.</p>
 <p>Adding forcing introduces new parameters, such as the amplitude and frequency of the external force, which significantly affect the pendulum's behavior. By systematically varying these parameters, a diverse class of solutions can be observed, including synchronized oscillations, chaotic motion, and resonance phenomena. These behaviors not only highlight fundamental physics principles but also provide insights into engineering applications such as energy harvesting, vibration isolation, and mechanical resonance.</p>
 <hr/>
-<h2 id="task-1-theoretical-foundation">Task 1: Theoretical Foundation</h2>
+<h2 id="theoretical-foundation">: Theoretical Foundation</h2>
 <h3 id="differential-equation">Differential Equation</h3>
 <p>The motion of a forced damped pendulum is governed by the following nonlinear differential equation:</p>
 <div class="arithmatex">\[
@@ -245,7 +245,7 @@
 <h3 id="resonance">Resonance</h3>
 <p>Resonance occurs when the driving frequency <span class="arithmatex">\(\omega\)</span> approaches the natural frequency <span class="arithmatex">\(\omega_0\)</span>. For light damping (<span class="arithmatex">\(b \ll \omega_0\)</span>), the amplitude <span class="arithmatex">\(A_p\)</span> peaks sharply near <span class="arithmatex">\(\omega = \omega_0\)</span>, amplifying the system's energy significantly.</p>
 <hr/>
-<h2 id="task-2-analysis-of-dynamics">Task 2: Analysis of Dynamics</h2>
+<h2 id="analysis-of-dynamics">Analysis of Dynamics</h2>
 <h3 id="parameter-effects">Parameter Effects</h3>
 <ul>
 <li><em>Damping Coefficient (b):</em> Higher <span class="arithmatex">\(b\)</span> reduces oscillation amplitude and suppresses chaos, stabilizing the system.</li>
@@ -255,14 +255,14 @@
 <h3 id="transition-to-chaos">Transition to Chaos</h3>
 <p>For large <span class="arithmatex">\(F\)</span> or specific <span class="arithmatex">\(\omega\)</span>, the nonlinear term <span class="arithmatex">\(\sin(\theta)\)</span> dominates, leading to chaotic motion. This transition is evident in phase portraits and Poincaré sections, where trajectories shift from closed loops (periodic) to scattered points (chaotic).</p>
 <hr/>
-<h2 id="task-3-practical-applications">Task 3: Practical Applications</h2>
+<h2 id="practical-applications">Practical Applications</h2>
 <ul>
 <li><em>Energy Harvesting:</em> Oscillatory motion in forced pendulums can be converted to electrical energy.</li>
 <li><em>Suspension Bridges:</em> Damping and forcing model wind-induced vibrations.</li>
 <li><em>Oscillating Circuits:</em> Analogous to driven RLC circuits, where resonance and damping play similar roles.</li>
 </ul>
 <hr/>
-<h2 id="task-4-implementation">Task 4: Implementation</h2>
+<h2 id="implementation">Implementation</h2>
 <p>Below is a Python script simulating the forced damped pendulum using the 4th-order Runge-Kutta (RK4) method. It includes visualizations of motion, phase portraits, and Poincaré sections.</p>
 <h1 id="parameters">Parameters</h1>
 <p>Gravitational acceleration:</p>

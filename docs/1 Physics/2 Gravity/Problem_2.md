@@ -30,6 +30,12 @@ The concept of escape velocity is fundamental in astrophysics and space explorat
    $$
    where \( v_{orb} \) is the orbital velocity of the planet around the star.
 
+
+
+![alt text](image-1.png)
+
+
+
 ## Mathematical Derivations and Parameters
 
 The escape and cosmic velocities depend on the mass and radius of the celestial body. The gravitational constant \( G \) is a universal constant. The velocities can be derived from the principles of energy conservation, where the kinetic energy of the object must equal the gravitational potential energy at the surface of the celestial body.

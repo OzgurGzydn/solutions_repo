@@ -39,6 +39,12 @@ $$ T^2 = \frac{4\pi^2}{G M} r^3 $$
 
 This confirms Kepler's Third Law.
 
+![alt text](image-2.png)
+
+
+
+
+
 ## Python Simulation
 Below is a Python script to simulate circular orbits and verify Kepler’s Third Law using numerical integration.
 ```

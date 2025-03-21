@@ -8,6 +8,13 @@ $$ T^2 \propto r^3 $$
 
 This relationship is fundamental in celestial mechanics, allowing astronomers to determine planetary motions, masses, and distances within the solar system and beyond.
 
+
+
+![alt text](image.png)
+
+
+
+
 ## Mathematical Derivation
 Using Newton's law of gravitation and centripetal force:
 

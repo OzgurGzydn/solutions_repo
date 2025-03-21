@@ -30,8 +30,8 @@ F = \frac{GMm}{r^2}
 $$
 where:
 - \( F \) = gravitational force
-- \( G \) = gravitational constant (\(6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}\))
-- \( M \) = mass of the Earth (\(5.972 \times 10^{24} \, \text{kg}\))
+- \( G \) = gravitational constant ($6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$)
+- \( M \) = mass of the Earth ($5.972 \times 10^{24} \, \text{kg}$)
 - \( m \) = mass of the payload
 - \( r \) = distance from the center of the Earth to the payload
 
@@ -90,3 +90,4 @@ plt.grid()
 plt.legend()
 plt.axis('equal')
 plt.show()
+

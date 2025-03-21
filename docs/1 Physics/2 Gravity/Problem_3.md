@@ -17,6 +17,13 @@ The trajectories of a payload released near Earth can be classified into three m
 
 3. **Hyperbolic Trajectory**:
    - Occurs when the total mechanical energy is positive. This trajectory indicates that the payload has enough velocity to escape Earth's gravitational influence.
+ 
+![alt text](image-3.png)
+
+
+
+
+
 
 ## Numerical Analysis
 

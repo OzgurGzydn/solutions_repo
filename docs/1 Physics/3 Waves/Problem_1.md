@@ -51,9 +51,15 @@ Examine the resulting displacement \(D_{total}(x, y, t)\) as a function of posit
 
 Present your findings graphically, illustrating the interference patterns for the chosen regular polygon.
 
+
+![alt text](image-1.png)
+
+
+
 ## Python Script
 
-Below is a Python script to simulate the interference patterns formed by waves emitted from point sources placed at the vertices of a regular polygon.
+Below is a Python script to simulate the interference patterns formed by waves emitted from point sources placed at the vertices of a regular polygon
+
 
 ```python
 import numpy as np

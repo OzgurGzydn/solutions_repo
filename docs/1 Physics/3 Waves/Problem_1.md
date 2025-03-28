@@ -54,7 +54,7 @@ Present your findings graphically, illustrating the interference patterns for th
 
 ![alt text](image-1.png)
 
-[simulation.waves](simulation.html)
+
 
 ## Python Script
 
@@ -102,3 +102,4 @@ plt.axhline(0, color='black', lw=0.5, ls='--')
 plt.axvline(0, color='black', lw=0.5, ls='--')
 plt.legend()
 plt.show()
+```

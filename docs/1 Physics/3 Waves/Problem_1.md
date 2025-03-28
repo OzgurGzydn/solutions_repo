@@ -23,9 +23,7 @@ The displacement of the water surface at point \((x, y)\) and time \(t\) can be 
 
 $$
 \eta(x,y,t) = \frac{A}{\sqrt{r}} \cdot \cos{(kr - \omega t + \phi)}
-
 $$
-
 where:
 - \(D(x, y, t)\) = displacement of the water surface at point \((x, y)\) and time \(t\)
 - \(A\) = amplitude of the wave

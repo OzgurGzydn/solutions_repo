@@ -22,7 +22,8 @@ Place point wave sources at the vertices of the selected polygon.
 The displacement of the water surface at point \((x, y)\) and time \(t\) can be described by the wave equation:
 
 $$
-D(x, y, t) = A \sin(k r - \omega t + \phi)
+\eta(x,y,t) = \frac{A}{\sqrt{r}} \cdot \cos{(kr - \omega t + \phi)}
+
 $$
 
 where:

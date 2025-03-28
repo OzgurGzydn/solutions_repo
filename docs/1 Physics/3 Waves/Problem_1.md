@@ -54,7 +54,7 @@ Present your findings graphically, illustrating the interference patterns for th
 
 ![alt text](image-1.png)
 
-
+[simulation.waves](simulation.html)
 
 ## Python Script
 

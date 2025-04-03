@@ -307,29 +307,6 @@ dtheta_dt = theta_dot  # Angular velocity
 dtheta_dot_dt = -b * theta_dot - omega_0**2 * np.sin(theta) + F * np.cos(omega * t)
 return dtheta_dt, dtheta_dot_dt
 </code></pre>
-<h1 id="example-usage-and-showcasing-the-equation">Example usage (and showcasing the equation):</h1>
-<h1 id="the-forced-damped-pendulum-follows-the-equation">The forced damped pendulum follows the equation:</h1>
-<h1 id="fracd2thetadt2-b-fracdthetadt-omega_02-sintheta-f-cosomega-t">$$ \frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \omega_0^2 \sin\theta = F \cos(\omega t) $$</h1>
-<h1 id="where">where:</h1>
-<h1 id="-theta-is-the-angle-of-the-pendulum">- theta is the angle of the pendulum</h1>
-<h1 id="-b-is-the-damping-coefficient">- b is the damping coefficient</h1>
-<h1 id="-omega_0-is-the-natural-frequency">- omega_0 is the natural frequency</h1>
-<h1 id="-f-is-the-forcing-amplitude">- F is the forcing amplitude</h1>
-<h1 id="-omega-is-the-forcing-frequency">- omega is the forcing frequency</h1>
-<h1 id="-t-is-time">- t is time.</h1>
-<h1 id="example-parameters">Example parameters:</h1>
-<p>b = 0.25
-omega_0 = 1.0
-F = 0.3
-omega = 1.5</p>
-<h1 id="example-initial-conditions">Example initial conditions:</h1>
-<p>initial_state = (np.pi / 4, 0.0) # (theta, theta_dot)</p>
-<h1 id="example-time">Example time:</h1>
-<p>t = 0.0</p>
-<h1 id="example-derivative-calculation">Example derivative calculation:</h1>
-<p>dtheta_dt, dtheta_dot_dt = pendulum_deriv(initial_state, t, b, omega_0, F, omega)</p>
-<p>print(f"dtheta/dt: {dtheta_dt}")
-print(f"d^2theta/dt^2: {dtheta_dot_dt}")</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">

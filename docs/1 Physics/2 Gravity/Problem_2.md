@@ -95,3 +95,4 @@ plt.subplot(2, 1, 1)
 plt.bar(x - 0.2, v1_values, width=0.2, label='First Cosmic Velocity (m/s)', color='blue')
 plt.bar(x, v2_values, width=0.2, label='Second Cosmic Velocity (m/s)', color='orange')
 plt.bar(x + 0.2, v3_values, width=
+```

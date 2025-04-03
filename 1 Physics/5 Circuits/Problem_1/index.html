@@ -213,8 +213,7 @@
 <img alt="alt text" src="../image-3.png"/>
 <img alt="alt text" src="../image-4.png"/></p>
 <h3 id="pseudocode">Pseudocode</h3>
-<p>```python
-function calculate_equivalent_resistance(graph):
+<pre><code class="language-python">function calculate_equivalent_resistance(graph):
   while graph has more than 2 nodes:
     # Series Reduction
     for each node with degree 2:
@@ -222,7 +221,8 @@ function calculate_equivalent_resistance(graph):
       r2 = resistance of other edge connecting to node
       req = r1 + r2
       remove node and its edges
-      add edge between the two neighboring nodes with resistance req</p>
+      add edge between the two neighboring nodes with resistance req
+</code></pre>
 <pre><code># Parallel Reduction
 for each pair of nodes with multiple edges:
   resistances = list of resistances of parallel edges

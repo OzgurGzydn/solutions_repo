@@ -172,6 +172,66 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="equivalent-resistance-calculation-using-graph-theory">Equivalent Resistance Calculation Using Graph Theory</h1>
+<p>This document outlines the calculation of equivalent resistance using graph theory, providing both a pseudocode and a Python implementation.</p>
+<h2 id="option-1-simplified-task-algorithm-description">Option 1: Simplified Task – Algorithm Description</h2>
+<h3 id="algorithm-description">Algorithm Description</h3>
+<ol>
+<li><strong>Graph Representation:</strong><ul>
+<li>Represent the electrical circuit as a graph <span class="arithmatex">\(G = (V, E)\)</span>, where:<ul>
+<li><span class="arithmatex">\(V\)</span> is the set of nodes (junctions).</li>
+<li><span class="arithmatex">\(E\)</span> is the set of edges (resistors).</li>
+<li>Each edge <span class="arithmatex">\(e \in E\)</span> has a weight <span class="arithmatex">\(R_e\)</span> representing the resistance.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Series Reduction:</strong><ul>
+<li>Identify linear chains of nodes with degree 2.</li>
+<li>Combine the resistances of the series edges into a single equivalent resistance: <span class="arithmatex">\(R_{eq} = R_1 + R_2 + ... + R_n\)</span>.</li>
+<li>Replace the series chain with a single edge having the equivalent resistance.</li>
+</ul>
+</li>
+<li><strong>Parallel Reduction:</strong><ul>
+<li>Identify parallel edges between two nodes.</li>
+<li>Combine the resistances of the parallel edges into a single equivalent resistance: <span class="arithmatex">\(R_{eq} = \frac{1}{\frac{1}{R_1} + \frac{1}{R_2} + ... + \frac{1}{R_n}}\)</span>.</li>
+<li>Replace the parallel edges with a single edge having the equivalent resistance.</li>
+</ul>
+</li>
+<li><strong>Iteration:</strong><ul>
+<li>Repeat steps 2 and 3 until the graph is reduced to a single edge connecting the two terminals of the circuit.</li>
+<li>This final edge's weight is the equivalent resistance of the circuit.</li>
+</ul>
+</li>
+<li><strong>Nested Combinations:</strong><ul>
+<li>The iterative nature of the algorithm handles nested combinations naturally. Inner series and parallel combinations are reduced first, then outer combinations are handled as the graph simplifies.</li>
+<li>The order of series and parallel reduction can affect the efficiency, but not the final result.</li>
+</ul>
+</li>
+</ol>
+<p><img alt="alt text" src="../image-2.png"/>
+<img alt="alt text" src="../image-3.png"/>
+<img alt="alt text" src="../image-4.png"/></p>
+<h3 id="pseudocode">Pseudocode</h3>
+<p>```python
+function calculate_equivalent_resistance(graph):
+  while graph has more than 2 nodes:
+    # Series Reduction
+    for each node with degree 2:
+      r1 = resistance of edge connecting to node
+      r2 = resistance of other edge connecting to node
+      req = r1 + r2
+      remove node and its edges
+      add edge between the two neighboring nodes with resistance req</p>
+<pre><code># Parallel Reduction
+for each pair of nodes with multiple edges:
+  resistances = list of resistances of parallel edges
+  req = 1 / sum(1 / r for r in resistances)
+  remove parallel edges
+  add single edge between the nodes with resistance req
+</code></pre>
+<p>return resistance of the remaining edge
+  ```</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">

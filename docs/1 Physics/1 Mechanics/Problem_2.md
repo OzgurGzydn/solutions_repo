@@ -152,31 +152,3 @@ def pendulum_deriv(state, t, b, omega_0, F, omega):
     dtheta_dot_dt = -b * theta_dot - omega_0**2 * np.sin(theta) + F * np.cos(omega * t)
     return dtheta_dt, dtheta_dot_dt
 
-# Example usage (and showcasing the equation):
-# The forced damped pendulum follows the equation:
-# $$ \frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \omega_0^2 \sin\theta = F \cos(\omega t) $$
-# where:
-# - theta is the angle of the pendulum
-# - b is the damping coefficient
-# - omega_0 is the natural frequency
-# - F is the forcing amplitude
-# - omega is the forcing frequency
-# - t is time.
-
-# Example parameters:
-b = 0.25
-omega_0 = 1.0
-F = 0.3
-omega = 1.5
-
-# Example initial conditions:
-initial_state = (np.pi / 4, 0.0) # (theta, theta_dot)
-
-# Example time:
-t = 0.0
-
-# Example derivative calculation:
-dtheta_dt, dtheta_dot_dt = pendulum_deriv(initial_state, t, b, omega_0, F, omega)
-
-print(f"dtheta/dt: {dtheta_dt}")
-print(f"d^2theta/dt^2: {dtheta_dot_dt}")

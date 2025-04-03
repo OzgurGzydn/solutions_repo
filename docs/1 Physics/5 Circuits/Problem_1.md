@@ -43,7 +43,7 @@ function calculate_equivalent_resistance(graph):
       req = r1 + r2
       remove node and its edges
       add edge between the two neighboring nodes with resistance req
-
+```
     # Parallel Reduction
     for each pair of nodes with multiple edges:
       resistances = list of resistances of parallel edges

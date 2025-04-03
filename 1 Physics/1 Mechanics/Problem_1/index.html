@@ -240,33 +240,6 @@ This is the range as a function of the angle of projection. Different initial co
 - <em>Uneven Terrain</em>: Adjust the landing height in the vertical equation, solving for <span class="arithmatex">\( t \)</span> when <span class="arithmatex">\( y(t) = h \)</span>. This complicates the range formula.
 - <em>Air Resistance</em>: Introduce a drag force proportional to velocity (e.g., <span class="arithmatex">\( F_d = -k v \)</span>), turning the equations into nonlinear differential equations, typically solved numerically.
 - <em>Real-World Examples</em>: Artillery, sports (e.g., golf, soccer), or space launches (with modified <span class="arithmatex">\( g \)</span>).</p>
-<hr/>
-<p>import numpy as np
-import matplotlib.pyplot as plt</p>
-<h1 id="constants">Constants</h1>
-<p>g = 9.81  # gravitational acceleration (m/s^2)</p>
-<h1 id="function-to-calculate-range">Function to calculate range</h1>
-<p>def calculate_range(v0, theta_deg):
-    theta_rad = np.radians(theta_deg)  # Convert degrees to radians
-    R = (v0**2 * np.sin(2 * theta_rad)) / g
-    return R</p>
-<h1 id="angles-from-0-to-90-degrees">Angles from 0 to 90 degrees</h1>
-<p>theta = np.linspace(0, 90, 181)  # 181 points for smooth curve</p>
-<h1 id="different-initial-velocities">Different initial velocities</h1>
-<p>v0_values = [10, 20, 30]  # m/s</p>
-<h1 id="plotting">Plotting</h1>
-<p>plt.figure(figsize=(10, 6))
-for v0 in v0_values:
-    R = calculate_range(v0, theta)
-    plt.plot(theta, R, label=f'v0 = {v0} m/s')</p>
-<h1 id="formatting-the-plot">Formatting the plot</h1>
-<p>plt.title('Range vs Angle of Projection')
-plt.xlabel('Angle of Projection (degrees)')
-plt.ylabel('Range (meters)')
-plt.grid(True)
-plt.legend()
-plt.show()
-```</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">

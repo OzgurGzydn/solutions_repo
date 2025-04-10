@@ -57,8 +57,6 @@ This exercise emphasizes rigorous measurement practices, uncertainty analysis, a
 
 ![alt text](image-1.png)
 
-```
-import numpy as np
 
 # Given values
 L = 1.0  # Length of the pendulum in meters

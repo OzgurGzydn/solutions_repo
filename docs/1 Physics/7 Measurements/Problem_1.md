@@ -56,14 +56,13 @@ This exercise emphasizes rigorous measurement practices, uncertainty analysis, a
   $$
 
 ![alt text](image-1.png)
-````
+
+```
 import numpy as np
 
 # Given values
 L = 1.0  # Length of the pendulum in meters
 T_mean = 2.0  # Measured mean period in seconds (for example)
-```
 # Calculate gravitational acceleration
 g = (4 * np.pi**2 * L) / T_mean**2
 print(f"Estimated gravitational acceleration g: {g} m/s²")
-

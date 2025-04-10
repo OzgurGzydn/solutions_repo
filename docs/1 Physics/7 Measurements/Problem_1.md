@@ -72,4 +72,4 @@ This exercise emphasizes rigorous measurement practices, uncertainty analysis, a
   # Calculate gravitational acceleration
   g = (4 * np.pi**2 * L) / T_mean**2
   print(f"Estimated gravitational acceleration g: {g} m/s²")
-```
+```s

@@ -74,3 +74,4 @@ populations = {
     "Exponential(λ=1)": exponential_pop,
     "Binomial(n=10, p=0.5)": binomial_pop
 }
+```

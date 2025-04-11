@@ -56,11 +56,46 @@ This exercise emphasizes rigorous measurement practices, uncertainty analysis, a
   $$
 
 ![alt text](image-1.png)
+```
+python
+import numpy as np
+import matplotlib.pyplot as plt
 
+# Function: Calculate mean and standard deviation
+def calculate_mean_and_std(times):
+    mean_time = np.mean(times)
+    std_dev = np.std(times)
+    return mean_time, std_dev
 
-# Given values
-L = 1.0  # Length of the pendulum in meters
-T_mean = 2.0  # Measured mean period in seconds (for example)
+# Pendulum length and measured times for 10 oscillations
+L = 1.0  # Length of the pendulum (in meters)
+times = [19.2, 19.5, 19.1, 19.4, 19.3, 19.6, 19.0, 19.5, 19.4, 19.2]  # Time for 10 oscillations (in seconds)
+
+# Calculate mean time and standard deviation
+T_mean, sigma = calculate_mean_and_std(times)
+
 # Calculate gravitational acceleration
 g = (4 * np.pi**2 * L) / T_mean**2
-print(f"Estimated gravitational acceleration g: {g} m/s²")
+
+# Uncertainty in the mean time
+delta_T = sigma / np.sqrt(len(times))
+
+# Uncertainty in gravitational acceleration
+delta_g = g * np.sqrt((delta_T / T_mean)**2 + (0.01 / L)**2)  # Assuming 1% uncertainty in L
+
+# Display results
+print(f'Mean Period (T): {T_mean:.4f} s')
+print(f'Uncertainty in Period (Delta T): {delta_T:.4f} s')
+print(f'Gravitational Acceleration (g): {g:.4f} m/s²')
+print(f'Uncertainty in Gravitational Acceleration (Delta g): {delta_g:.4f} m/s²')
+
+# Visualization of the measurements
+fig, ax = plt.subplots()
+ax.plot(times, 'bo-', label='Oscillation Times')
+ax.axhline(y=T_mean, color='r', linestyle='--', label=f'Mean Period: {T_mean:.4f} s')
+ax.set_xlabel('Measurement Number')
+ax.set_ylabel('Time (s)')
+ax.set_title('Measurement of Pendulum Period')
+ax.legend()
+plt.show()
+```

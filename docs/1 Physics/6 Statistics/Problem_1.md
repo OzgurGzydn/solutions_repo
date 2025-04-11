@@ -1,81 +1,76 @@
 # Problem 1
-# 🚀 Simulating the Effects of the Lorentz Force
+# 📊 Central Limit Theorem (CLT) — Simulation & Explanation
 
 ## 🎯 Motivation
 
-The Lorentz force governs the motion of charged particles in electric and magnetic fields:
-
-$$
-\vec{F} = q(\vec{E} + \vec{v} \times \vec{B})
-$$
-
-This principle is essential in:
-
-- Particle accelerators  
-- Mass spectrometers  
-- Magnetic confinement (fusion)  
-- Astrophysical phenomena
-
-Simulating the Lorentz force helps visualize the trajectories and understand these effects better.
+The **Central Limit Theorem (CLT)** is a fundamental concept in statistics. It explains **why normal distributions appear so frequently** in nature and data analysis — even when the original population is not normal.
 
 ---
 
+## 📐 What is the Central Limit Theorem?
 
+Suppose we have a population with:
 
-![alt text](image.png)
+- Mean: $$ \mu $$
+- Standard deviation: $$ \sigma $$
+- Any arbitrary distribution (not necessarily normal)
 
+Let $$ X_1, X_2, \dots, X_n $$ be independent and identically distributed (i.i.d.) random variables drawn from this population. Define the sample mean:
 
+$$
+\bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i
+$$
 
+Then as the sample size $$ n \to \infty $$, the distribution of $$ \bar{X}_n $$ approaches a **normal distribution**, regardless of the shape of the original population:
 
-## 🔬 1. Applications
+$$
+\bar{X}_n \overset{d}{\longrightarrow} \mathcal{N} \left( \mu, \frac{\sigma^2}{n} \right)
+$$
 
-- **Cyclotrons / Synchrotrons** – use $\vec{B}$ to bend particle paths
-- **Mass spectrometry** – uses $\vec{E}$ and $\vec{B}$ to identify particles
-- **Plasma confinement** – charged particles spiral in magnetic fields
-- **Auroras & cosmic rays** – natural demonstrations of Lorentz force
+If we **standardize** the sample mean:
+
+$$
+Z = \frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \Rightarrow Z \sim \mathcal{N}(0, 1)
+$$
 
 ---
 
-## 🧮 2. Python Simulation Code
+## 🧪 Goal: Simulate CLT with Different Populations
+
+We'll simulate this phenomenon using Python and visualize how the sampling distribution of the mean becomes more normal as:
+
+- Sample size increases
+- Distribution changes (uniform, exponential, binomial)
+
+
+
+![alt text](image-2.png)
+---
+
+## 🧰 Step 1: Create Population Distributions
+
+We simulate large populations from three distributions:
+
+- **Uniform(0, 1)**
+- **Exponential(λ = 1)**
+- **Binomial(n = 10, p = 0.5)**
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+import seaborn as sns
+import pandas as pd
 
-# Lorentz force definition
-def lorentz_force(q, v, E, B):
-    return q * (E + np.cross(v, B))
+np.random.seed(42)
+population_size = 100000
 
-# Runge-Kutta 4th order integration
-def rk4_step(pos, vel, q, m, E, B, dt):
-    def acceleration(v): return lorentz_force(q, v, E, B) / m
+# Populations
+uniform_pop = np.random.uniform(0, 1, population_size)
+exponential_pop = np.random.exponential(1.0, population_size)
+binomial_pop = np.random.binomial(10, 0.5, population_size)
 
-    k1v = acceleration(vel) * dt
-    k1x = vel * dt
-
-    k2v = acceleration(vel + 0.5 * k1v) * dt
-    k2x = (vel + 0.5 * k1v) * dt
-
-    k3v = acceleration(vel + 0.5 * k2v) * dt
-    k3x = (vel + 0.5 * k2v) * dt
-
-    k4v = acceleration(vel + k3v) * dt
-    k4x = (vel + k3v) * dt
-
-    new_vel = vel + (k1v + 2*k2v + 2*k3v + k4v) / 6
-    new_pos = pos + (k1x + 2*k2x + 2*k3x + k4x) / 6
-
-    return new_pos, new_vel
-
-# Simulation function
-def simulate(q, m, E, B, v0, r0, t_max, dt):
-    steps = int(t_max / dt)
-    r = np.zeros((steps, 3))
-    v = np.zeros((steps, 3))
-    r[0], v[0] = r0, v0
-
-    for i in range(1, steps):
-        r[i], v[i] = rk4_step(r[i-1], v[i-1], q, m, E, B, dt)
-    return r
-```
+populations = {
+    "Uniform(0,1)": uniform_pop,
+    "Exponential(λ=1)": exponential_pop,
+    "Binomial(n=10, p=0.5)": binomial_pop
+}
